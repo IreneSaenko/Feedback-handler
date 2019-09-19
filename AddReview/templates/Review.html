@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Отзывы с учётом редактирования</title>
+</head>
+<body>
+{% load poll_extras %}
+{% for rewiew in reviews %}
+    <h4>{% if rewiew.user != None %} Имя пользователя: {{rewiew.user}} {% endif %}</h4>
+    <h4>  Врач: {{rewiew.doctor.surname}} {{rewiew.doctor.name}} {{rewiew.doctor.fathername}} </h4>
+    <h4>Специальности: {% for specialty in rewiew.doctor.specialities.all %} {{ specialty.specialty }} {% endfor %}</h4>
+    <h4>Дата: {{rewiew.dt_updated| date:"d.m.Y h:i"}} </h4>
+    <h4>Отзыв: {{ rewiew.changed_review|red:all_words|safe}}</h4>
+    <h4>-------------------------------------------------------------------------------</h4>
+{% endfor %}
+
+</body>
+</html>

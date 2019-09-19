@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Стартовая страница</title>
+</head>
+<body>
+<h1>Добро пожаловать!</h1>
+<form action="/review"><!-- надо поменять урл-->
+    <p><input type="submit" value="Посмотреть список отзывов!"></p>
+</form>
+<form method="post"><!-- надо поменять урл-->
+    {% csrf_token %}
+    <p>Введите id доктора, отзыв о котором хотите оставить:</p>
+    <p><textarea name="doctor_id"> </textarea></p>
+    <p><input type="submit" value="Оставить отзыв"></p>
+    <p style="color: red">{{error}}</p>
+</form>
+</body>
+</html>

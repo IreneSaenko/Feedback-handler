@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление отзыва о враче</title>
+</head>
+<body>
+<form method="post" name="review">
+    {% csrf_token %}
+    <H1>Оставить отзыв</H1>
+    <h2> {{doc.surname}} {{doc.name}} {{doc.fathername}}</h2>
+    <p>  {%  for special in specials %}
+            {{ special.specialty }}
+         {% endfor %}
+    </p>
+    <p><textarea name="comment"> </textarea></p>
+    <p><input type="submit" value="Отправить отзыв"></p>
+</form>
+</body>
+</html>
